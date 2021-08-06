@@ -1,77 +1,21 @@
-# name: Cypress Tests using Cypress Docker Image
-
-# on: [push]
-
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-latest
-#     container: cypress/browsers:node12.18.3-chrome87-ff82
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-
-#       - name: Cypress run
-#         uses: cypress-io/github-action@v2
-#         with:
-#           record: true
-#           browser: chrome
-#           start: npm run
-#           spec: cypress/integration/*
-#         env:
-#           CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
-
-name: Cypress Tests using Cypress Docker Image in parallel; Job x 3
+name: Cypress Tests using Cypress Docker Image
 
 on: [push]
 
 jobs:
-  install:
+  cypress-run:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress install
+      - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          runTests: false
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: build
-
-  ui-chrome-tests:
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    needs: install
-    strategy:
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
-
-      - name: 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v2
-        with:
-          # we have already installed all dependencies above
-          install: false
-          start: npm run
-          browser: chrome
           record: true
-          parallel: true
-          group: 'UI - Chrome'
+          browser: chrome
+          start: npm run
           spec: cypress/integration/*
         env:
           CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
