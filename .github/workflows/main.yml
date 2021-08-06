@@ -32,23 +32,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install cypress only
-        run: npm i cypress
-
-      - name: Install
+      - name: Cypress install
         uses: cypress-io/github-action@v2
         with:
-          # Disable running of tests within install job
           runTests: false
-          build: npm install
+      - run: npm i cypress
+      - run: npm install
 
-      - name: Cache NPM and Cypress
-        uses: actions/cache@v2
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
         with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          name: build
+          if-no-files-found: error
+          path: build
 
   ui-chrome-tests:
     runs-on: ubuntu-latest
@@ -62,6 +58,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
 
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
