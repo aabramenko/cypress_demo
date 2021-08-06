@@ -1,23 +1,3 @@
-# name: Cypress Tests
-
-# on: [push]
-
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-#       # Install NPM dependencies, cache them correctly
-#       # and run all Cypress tests
-#       - name: Cypress run
-#         uses: cypress-io/github-action@v2
-#         with:
-#           record: true
-#           start: npm run
-#         env:
-#           CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
-
 name: Cypress Tests using Cypress Docker Image
 
 on: [push]
@@ -33,5 +13,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          record: true
           browser: chrome
           start: npm run
+        env:
+          CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
