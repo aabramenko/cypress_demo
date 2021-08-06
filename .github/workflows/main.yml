@@ -32,7 +32,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress install
+      - name: Cache NPM and Cypress
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: install cypress only
+        run: npm i cypress
+
+      - name: other installation
         uses: cypress-io/github-action@v2
         with:
           # Disable running of tests within install job
