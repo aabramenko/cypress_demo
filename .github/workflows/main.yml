@@ -36,14 +36,11 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           runTests: false
-      - run: npm i cypress
-      - run: npm install
 
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
           name: build
-          if-no-files-found: error
           path: build
 
   ui-chrome-tests:
