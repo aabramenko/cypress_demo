@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "cypress": "^8.1.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "junit-merge": "^2.0.0",
+    "mocha-junit-reporter": "^2.0.0",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0"
+  },
+  "scripts": {
+    "prereport": "npm run delete:reports; npm run delete:screenshots; npm run delete:dockerreports",
+    "delete:reports": "rm -r cypress/results/* || true",
+    "delete:screenshots": "rm -r cypress/screenshots/* || true",
+    "delete:dockerreports": "rm -r mochawesome-report/* || true",
+    "mochawesome-merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
+    "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
+    "cy:run:suite1": "npx cypress run --spec 'cypress/integration/*1.spec.js' --headless --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --browser chrome",
+    "cy:run:suite2": "npx cypress run --spec 'cypress/integration/*2.spec.js' --headless --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --browser chrome",
+    "cy:run:docker": "npm run prereport; npm run cy:run:suite1; npm run cy:run:suite2; npm run junit-merge; npm run mochawesome-merge",
+    "cy:run": "npm run prereport; npm run cy:run:suite1 & npm run cy:run:suite2; npm run junit-merge; npm run mochawesome-merge"
+  }
+}

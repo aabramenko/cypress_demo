@@ -1,0 +1,12 @@
+version: "3"
+services: 
+    cypress_tests:
+        image: cypress_demo
+        build: 
+            context: .
+            dockerfile: ./Dockerfile
+        volumes: 
+            - ./dockerReports/:/app/cypress/results
+            - ./dockerReports/:/app/cypress/screenshots
+            - ./dockerReports/:/app/mochawesome-report
+            - ./dockerReports/:/root/.npm/_logs
