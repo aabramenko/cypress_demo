@@ -16,5 +16,6 @@ jobs:
           record: true
           browser: chrome
           start: npm run
+          spec: cypress/integration/*1.spec.js
         env:
           CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
