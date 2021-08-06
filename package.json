@@ -19,6 +19,6 @@
     "cy:run:suite2": "npx cypress run --spec 'cypress/integration/*2.spec.js' --headless --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --browser chrome",
     "cy:run:docker": "npm run prereport; npm run cy:run:suite1; npm run cy:run:suite2; npm run junit-merge; npm run mochawesome-merge",
     "cy:run": "npm run prereport; npm run cy:run:suite1 & npm run cy:run:suite2; npm run junit-merge; npm run mochawesome-merge",
-    "cy:run:ci": "npx cypress run --spec 'cypress/integration/*.spec.js' --record --key b98cff40-8555-40e4-982b-5af09efaabd4"
+    "cy:run:ci": "npx cypress run --spec 'cypress/integration/*.spec.js'"
   }
 }
