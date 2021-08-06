@@ -16,4 +16,4 @@ jobs:
           record: true
           start: npm run cy:run:ci
         env:
-                  CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
+          CYPRESS_RECORD_KEY: b98cff40-8555-40e4-982b-5af09efaabd4
