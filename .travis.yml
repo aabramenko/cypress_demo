@@ -16,5 +16,5 @@ cache:
     - npm ci
 
 script:
-  - npm run cy:run -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4
+  - npm run cy:run:docker -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4
   - kill $(jobs -p) || true
