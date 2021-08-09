@@ -5,9 +5,9 @@
     "passes": 6,
     "pending": 0,
     "failures": 0,
-    "start": "2021-08-04T14:29:44.999Z",
-    "end": "2021-08-04T14:29:59.524Z",
-    "duration": 27050,
+    "start": "2021-08-09T15:41:02.302Z",
+    "end": "2021-08-09T15:41:46.211Z",
+    "duration": 29508,
     "testsRegistered": 6,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "2c763025-28eb-4a44-8c58-696d0215133f",
+      "uuid": "235fb78b-9a15-4d2b-9a81-d8d53ac10494",
       "title": "",
       "fullFile": "cypress/integration/compareRateFromGoogleAndBank2.spec.js",
       "file": "cypress/integration/compareRateFromGoogleAndBank2.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "001887ca-1625-4896-b3d8-1a5e9dd6200f",
+          "uuid": "6380401d-fcbb-442a-8e57-7dc5b8348e99",
           "title": "google a currency rate and compare with rate from the bank of Canada [2]",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "from CAD to AUD",
               "fullTitle": "google a currency rate and compare with rate from the bank of Canada [2] from CAD to AUD",
               "timedOut": null,
-              "duration": 6162,
+              "duration": 5589,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "_GooglePage.onGooglePage.search(\"rate \" + currencyFrom + \" to \" + currencyTo);\n_GooglePage.onGooglePage.getCurrencyConverterArea().should('be.visible');\n_GooglePage.onGooglePage.getCurrencyConverterArea().find('div').eq(2).find('span').eq(0).then(rateFromGoogle => {\n  cy.log('rate from Google: ' + currencyFrom + \" to \" + currencyTo + \": \" + rateFromGoogle.text());\n  cy.request('GET', Cypress.env('rateAPI').replace(\"{FROMTO}\", currencyFrom + currencyTo)).then(response => {\n    expect(response.status).to.eq(200);\n    var len = response.body.observations.length;\n    var rateFromBank = response.body.observations[len - 1]['FX' + currencyFrom + currencyTo].v;\n    cy.log(\"rate from bank: \" + currencyFrom + \" to \" + currencyTo + \": \" + rateFromBank);\n    rateFromBank = parseFloat(rateFromBank.replace(\",\", \".\"));\n    rateFromGoogle = parseFloat(rateFromGoogle.text().replace(\",\", \".\"));\n    var diff = Math.abs(rateFromBank - rateFromGoogle);\n    var diffPerc = diff * 100.0 / Math.max(rateFromBank, rateFromGoogle);\n    cy.log(\"Difference for \" + currencyFrom + \" to \" + currencyTo + \" is \" + diff + \", what is \" + diffPerc + \"%\");\n    expect(diffPerc).to.be.lessThan(1);\n  });\n});",
               "err": {},
-              "uuid": "075f760b-b0f3-4866-8686-68905cfbe06a",
-              "parentUUID": "001887ca-1625-4896-b3d8-1a5e9dd6200f",
+              "uuid": "9c09fec0-b5cf-489d-ab16-df2860fb0d29",
+              "parentUUID": "6380401d-fcbb-442a-8e57-7dc5b8348e99",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "from CAD to BRL",
               "fullTitle": "google a currency rate and compare with rate from the bank of Canada [2] from CAD to BRL",
               "timedOut": null,
-              "duration": 3772,
+              "duration": 3293,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "_GooglePage.onGooglePage.search(\"rate \" + currencyFrom + \" to \" + currencyTo);\n_GooglePage.onGooglePage.getCurrencyConverterArea().should('be.visible');\n_GooglePage.onGooglePage.getCurrencyConverterArea().find('div').eq(2).find('span').eq(0).then(rateFromGoogle => {\n  cy.log('rate from Google: ' + currencyFrom + \" to \" + currencyTo + \": \" + rateFromGoogle.text());\n  cy.request('GET', Cypress.env('rateAPI').replace(\"{FROMTO}\", currencyFrom + currencyTo)).then(response => {\n    expect(response.status).to.eq(200);\n    var len = response.body.observations.length;\n    var rateFromBank = response.body.observations[len - 1]['FX' + currencyFrom + currencyTo].v;\n    cy.log(\"rate from bank: \" + currencyFrom + \" to \" + currencyTo + \": \" + rateFromBank);\n    rateFromBank = parseFloat(rateFromBank.replace(\",\", \".\"));\n    rateFromGoogle = parseFloat(rateFromGoogle.text().replace(\",\", \".\"));\n    var diff = Math.abs(rateFromBank - rateFromGoogle);\n    var diffPerc = diff * 100.0 / Math.max(rateFromBank, rateFromGoogle);\n    cy.log(\"Difference for \" + currencyFrom + \" to \" + currencyTo + \" is \" + diff + \", what is \" + diffPerc + \"%\");\n    expect(diffPerc).to.be.lessThan(1);\n  });\n});",
               "err": {},
-              "uuid": "ec48d6f6-96a3-48c5-827d-1c38958e589c",
-              "parentUUID": "001887ca-1625-4896-b3d8-1a5e9dd6200f",
+              "uuid": "ca78c977-c815-42ac-8167-da00726af014",
+              "parentUUID": "6380401d-fcbb-442a-8e57-7dc5b8348e99",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "from CAD to JPY",
               "fullTitle": "google a currency rate and compare with rate from the bank of Canada [2] from CAD to JPY",
               "timedOut": null,
-              "duration": 3819,
+              "duration": 4493,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "_GooglePage.onGooglePage.search(\"rate \" + currencyFrom + \" to \" + currencyTo);\n_GooglePage.onGooglePage.getCurrencyConverterArea().should('be.visible');\n_GooglePage.onGooglePage.getCurrencyConverterArea().find('div').eq(2).find('span').eq(0).then(rateFromGoogle => {\n  cy.log('rate from Google: ' + currencyFrom + \" to \" + currencyTo + \": \" + rateFromGoogle.text());\n  cy.request('GET', Cypress.env('rateAPI').replace(\"{FROMTO}\", currencyFrom + currencyTo)).then(response => {\n    expect(response.status).to.eq(200);\n    var len = response.body.observations.length;\n    var rateFromBank = response.body.observations[len - 1]['FX' + currencyFrom + currencyTo].v;\n    cy.log(\"rate from bank: \" + currencyFrom + \" to \" + currencyTo + \": \" + rateFromBank);\n    rateFromBank = parseFloat(rateFromBank.replace(\",\", \".\"));\n    rateFromGoogle = parseFloat(rateFromGoogle.text().replace(\",\", \".\"));\n    var diff = Math.abs(rateFromBank - rateFromGoogle);\n    var diffPerc = diff * 100.0 / Math.max(rateFromBank, rateFromGoogle);\n    cy.log(\"Difference for \" + currencyFrom + \" to \" + currencyTo + \" is \" + diff + \", what is \" + diffPerc + \"%\");\n    expect(diffPerc).to.be.lessThan(1);\n  });\n});",
               "err": {},
-              "uuid": "987646e6-1da8-4e21-9754-9b5331fc65bb",
-              "parentUUID": "001887ca-1625-4896-b3d8-1a5e9dd6200f",
+              "uuid": "e7ee9736-47a1-4a7e-bd16-b121446ea753",
+              "parentUUID": "6380401d-fcbb-442a-8e57-7dc5b8348e99",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "075f760b-b0f3-4866-8686-68905cfbe06a",
-            "ec48d6f6-96a3-48c5-827d-1c38958e589c",
-            "987646e6-1da8-4e21-9754-9b5331fc65bb"
+            "9c09fec0-b5cf-489d-ab16-df2860fb0d29",
+            "ca78c977-c815-42ac-8167-da00726af014",
+            "e7ee9736-47a1-4a7e-bd16-b121446ea753"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13753,
+          "duration": 13375,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -114,7 +114,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "c206d527-ea41-46d7-a6ca-95a5dd0827a7",
+      "uuid": "83ea295e-8118-4f2e-b577-c446a202e517",
       "title": "",
       "fullFile": "cypress/integration/compareRateFromGoogleAndBank1.spec.js",
       "file": "cypress/integration/compareRateFromGoogleAndBank1.spec.js",
@@ -123,7 +123,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e9cce177-b27e-4904-8dcb-0572eabdb3ac",
+          "uuid": "cbbca8b3-2ac3-4a36-a9ae-3abe8f5ae123",
           "title": "google a currency rate and compare with rate from the bank of Canada [1]",
           "fullFile": "",
           "file": "",
@@ -134,7 +134,7 @@
               "title": "from CAD to USD",
               "fullTitle": "google a currency rate and compare with rate from the bank of Canada [1] from CAD to USD",
               "timedOut": null,
-              "duration": 5736,
+              "duration": 8926,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -143,8 +143,8 @@
               "context": null,
               "code": "_GooglePage.onGooglePage.search(\"rate \" + currencyFrom + \" to \" + currencyTo);\n_GooglePage.onGooglePage.getCurrencyConverterArea().should('be.visible');\n_GooglePage.onGooglePage.getCurrencyConverterArea().find('div').eq(2).find('span').eq(0).then(rateFromGoogle => {\n  cy.log('rate from Google: ' + currencyFrom + \" to \" + currencyTo + \": \" + rateFromGoogle.text());\n  cy.request('GET', Cypress.env('rateAPI').replace(\"{FROMTO}\", currencyFrom + currencyTo)).then(response => {\n    expect(response.status).to.eq(200);\n    var len = response.body.observations.length;\n    var rateFromBank = response.body.observations[len - 1]['FX' + currencyFrom + currencyTo].v;\n    cy.log(\"rate from bank: \" + currencyFrom + \" to \" + currencyTo + \": \" + rateFromBank);\n    rateFromBank = parseFloat(rateFromBank.replace(\",\", \".\"));\n    rateFromGoogle = parseFloat(rateFromGoogle.text().replace(\",\", \".\"));\n    var diff = Math.abs(rateFromBank - rateFromGoogle);\n    var diffPerc = diff * 100.0 / Math.max(rateFromBank, rateFromGoogle);\n    cy.log(\"Difference for \" + currencyFrom + \" to \" + currencyTo + \" is \" + diff + \", what is \" + diffPerc + \"%\");\n    expect(diffPerc).to.be.lessThan(1);\n  });\n});",
               "err": {},
-              "uuid": "d18e69d4-78ee-42dc-b240-2e2390af8bce",
-              "parentUUID": "e9cce177-b27e-4904-8dcb-0572eabdb3ac",
+              "uuid": "1ec01188-e7e6-45dd-a2f9-5d327c21d597",
+              "parentUUID": "cbbca8b3-2ac3-4a36-a9ae-3abe8f5ae123",
               "isHook": false,
               "skipped": false
             },
@@ -152,7 +152,7 @@
               "title": "from CAD to EUR",
               "fullTitle": "google a currency rate and compare with rate from the bank of Canada [1] from CAD to EUR",
               "timedOut": null,
-              "duration": 3821,
+              "duration": 3802,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -161,8 +161,8 @@
               "context": null,
               "code": "_GooglePage.onGooglePage.search(\"rate \" + currencyFrom + \" to \" + currencyTo);\n_GooglePage.onGooglePage.getCurrencyConverterArea().should('be.visible');\n_GooglePage.onGooglePage.getCurrencyConverterArea().find('div').eq(2).find('span').eq(0).then(rateFromGoogle => {\n  cy.log('rate from Google: ' + currencyFrom + \" to \" + currencyTo + \": \" + rateFromGoogle.text());\n  cy.request('GET', Cypress.env('rateAPI').replace(\"{FROMTO}\", currencyFrom + currencyTo)).then(response => {\n    expect(response.status).to.eq(200);\n    var len = response.body.observations.length;\n    var rateFromBank = response.body.observations[len - 1]['FX' + currencyFrom + currencyTo].v;\n    cy.log(\"rate from bank: \" + currencyFrom + \" to \" + currencyTo + \": \" + rateFromBank);\n    rateFromBank = parseFloat(rateFromBank.replace(\",\", \".\"));\n    rateFromGoogle = parseFloat(rateFromGoogle.text().replace(\",\", \".\"));\n    var diff = Math.abs(rateFromBank - rateFromGoogle);\n    var diffPerc = diff * 100.0 / Math.max(rateFromBank, rateFromGoogle);\n    cy.log(\"Difference for \" + currencyFrom + \" to \" + currencyTo + \" is \" + diff + \", what is \" + diffPerc + \"%\");\n    expect(diffPerc).to.be.lessThan(1);\n  });\n});",
               "err": {},
-              "uuid": "403fa751-0118-479d-a2bc-01779ad1735b",
-              "parentUUID": "e9cce177-b27e-4904-8dcb-0572eabdb3ac",
+              "uuid": "5a743207-29f8-4b7d-9d4b-13504ef80784",
+              "parentUUID": "cbbca8b3-2ac3-4a36-a9ae-3abe8f5ae123",
               "isHook": false,
               "skipped": false
             },
@@ -170,7 +170,7 @@
               "title": "from CAD to RUB",
               "fullTitle": "google a currency rate and compare with rate from the bank of Canada [1] from CAD to RUB",
               "timedOut": null,
-              "duration": 3740,
+              "duration": 3405,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -179,22 +179,22 @@
               "context": null,
               "code": "_GooglePage.onGooglePage.search(\"rate \" + currencyFrom + \" to \" + currencyTo);\n_GooglePage.onGooglePage.getCurrencyConverterArea().should('be.visible');\n_GooglePage.onGooglePage.getCurrencyConverterArea().find('div').eq(2).find('span').eq(0).then(rateFromGoogle => {\n  cy.log('rate from Google: ' + currencyFrom + \" to \" + currencyTo + \": \" + rateFromGoogle.text());\n  cy.request('GET', Cypress.env('rateAPI').replace(\"{FROMTO}\", currencyFrom + currencyTo)).then(response => {\n    expect(response.status).to.eq(200);\n    var len = response.body.observations.length;\n    var rateFromBank = response.body.observations[len - 1]['FX' + currencyFrom + currencyTo].v;\n    cy.log(\"rate from bank: \" + currencyFrom + \" to \" + currencyTo + \": \" + rateFromBank);\n    rateFromBank = parseFloat(rateFromBank.replace(\",\", \".\"));\n    rateFromGoogle = parseFloat(rateFromGoogle.text().replace(\",\", \".\"));\n    var diff = Math.abs(rateFromBank - rateFromGoogle);\n    var diffPerc = diff * 100.0 / Math.max(rateFromBank, rateFromGoogle);\n    cy.log(\"Difference for \" + currencyFrom + \" to \" + currencyTo + \" is \" + diff + \", what is \" + diffPerc + \"%\");\n    expect(diffPerc).to.be.lessThan(1);\n  });\n});",
               "err": {},
-              "uuid": "f9ee3e29-5def-4b87-b324-b76f60d1e27d",
-              "parentUUID": "e9cce177-b27e-4904-8dcb-0572eabdb3ac",
+              "uuid": "5233f8c3-aa74-47ba-8ca1-d2a8a3c80f2f",
+              "parentUUID": "cbbca8b3-2ac3-4a36-a9ae-3abe8f5ae123",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d18e69d4-78ee-42dc-b240-2e2390af8bce",
-            "403fa751-0118-479d-a2bc-01779ad1735b",
-            "f9ee3e29-5def-4b87-b324-b76f60d1e27d"
+            "1ec01188-e7e6-45dd-a2f9-5d327c21d597",
+            "5a743207-29f8-4b7d-9d4b-13504ef80784",
+            "5233f8c3-aa74-47ba-8ca1-d2a8a3c80f2f"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 13297,
+          "duration": 16133,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
