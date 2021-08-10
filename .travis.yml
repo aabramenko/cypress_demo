@@ -1,27 +1,4 @@
-# language: node_js
-
-# node_js:
-#   - 12
-
-# addons:
-#   apt:
-#     packages:
-#     - libgconf-2-4
-
-# cache:
-#   directories:
-#     - ~/.npm
-#     - ~/.cache
-#   override:
-#     - npm ci
-
-# script:
-#   - npm run cy:run:docker -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4
-#   - kill $(jobs -p) || true
-
 language: node_js
-env:
-  - PUPPETEER_SKIP_DOWNLOAD=1
 
 node_js:
   - 12
@@ -38,33 +15,6 @@ cache:
   override:
     - npm ci
 
-defaults: &defaults
-  script:
-    - npm run cy:run:docker -- --record --parallel --group $STAGE_NAME
-    - kill $(jobs -p) || true
-
-jobs:
-  include:
-    # we have multiple jobs to execute using just a single stage
-    # but we can pass group name via environment variable to Cypress test runner
-    - stage: test
-      env:
-        - STAGE_NAME="1x-electron on Travis CI"
-      <<: *defaults
-    # run tests in parallel by including several test jobs with same name variable
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
+script:
+  - npm run cy:run:docker
+  - kill $(jobs -p) || true
