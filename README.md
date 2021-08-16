@@ -34,6 +34,11 @@ docker-compose up
 Tests are started on every push here: https://github.com/aabramenko/cypress_demo/actions
 
 
+## Run tests using Travis
+
+Tests are started on every push here: https://travis-ci.com/github/aabramenko/cypress_demo
+
+
 ## Reports
 
 The "Mochawesome report" is created after each run on a local instance and saved as an html file in the folder "cypress_demo/mochawesome-report/"
