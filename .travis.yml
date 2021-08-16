@@ -45,9 +45,13 @@ jobs:
   include:
     - stage: test
       env:
-        - STAGE_NAME="2x-electron"
+        - STAGE_NAME="3x-electron"
       <<: *defaults
     - stage: test
       env:
-        - STAGE_NAME="2x-electron"
+        - STAGE_NAME="3x-electron"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="3x-electron"
       <<: *defaults
