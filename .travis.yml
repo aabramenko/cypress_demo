@@ -38,28 +38,16 @@ cache:
 
 defaults: &defaults
   script:
-    - npm run cy:debug -- --parallel --group $STAGE_NAME
+    - npm run cy:debug -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --parallel
     - kill $(jobs -p) || true
 
 jobs:
   include:
     - stage: test
       env:
-        - STAGE_NAME="1x-electron on Travis CI"
+        - STAGE_NAME="2x-electron on Travis CI"
       <<: *defaults
     - stage: test
       env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
-      <<: *defaults
-    - stage: test
-      env:
-        - STAGE_NAME="4x-electron on Travis CI"
+        - STAGE_NAME="2x-electron on Travis CI"
       <<: *defaults
