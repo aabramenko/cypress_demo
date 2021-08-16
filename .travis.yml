@@ -38,7 +38,7 @@ cache:
 
 defaults: &defaults
   script:
-    - npm run cy:debug -- --parallel --group "1x-electron on Travis CI"
+    - npm run cy:debug -- --parallel --group $STAGE_NAME
     - kill $(jobs -p) || true
 
 jobs:
