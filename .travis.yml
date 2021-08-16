@@ -38,12 +38,7 @@ cache:
 
 defaults: &defaults
   script:
-    - npm run cy:travis -- 
-    --record --key b98cff40-8555-40e4-982b-5af09efaabd4 
-    --parallel 
-    --group $STAGE_NAME 
-    --ci-build-id $STAGE_NAME-%s
-    --browser $BROWSER
+    - npm run cy:travis -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --parallel --group $STAGE_NAME --ci-build-id $STAGE_NAME-%s --browser $BROWSER
     - kill $(jobs -p) || true
 
 jobs:
