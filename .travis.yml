@@ -43,11 +43,11 @@ defaults: &defaults
 
 jobs:
   include:
-    - stage: "1st thread"
+    - stage: test
       env:
         - STAGE_NAME="2x-electron"
       <<: *defaults
-    - stage: "2nd thread"
+    - stage: test
       env:
         - STAGE_NAME="2x-electron"
       <<: *defaults
