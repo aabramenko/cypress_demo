@@ -38,7 +38,7 @@ cache:
 
 defaults: &defaults
   script:
-    - npm run cy:debug -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --parallel --group $STAGE_NAME
+    - npm run cy:debug -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --parallel --group $STAGE_NAME --ci-build-id $STAGE_NAME-%s
     - kill $(jobs -p) || true
 
 jobs:
