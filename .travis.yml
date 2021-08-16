@@ -49,5 +49,5 @@ jobs:
       <<: *defaults
     - stage: test
       env:
-        - STAGE_NAME="2x"
+        - STAGE_NAME="3x"
       <<: *defaults
