@@ -1,3 +1,24 @@
+# language: node_js
+
+# node_js:
+#   - 12
+
+# addons:
+#   apt:
+#     packages:
+#     - libgconf-2-4
+
+# cache:
+#   directories:
+#     - ~/.npm
+#     - ~/.cache
+#   override:
+#     - npm ci
+
+# script:
+#   - npm run cy:debug
+#   - kill $(jobs -p) || true
+
 language: node_js
 
 node_js:
@@ -15,6 +36,30 @@ cache:
   override:
     - npm ci
 
-script:
-  - npm run cy:debug
-  - kill $(jobs -p) || true
+defaults: &defaults
+  script:
+    - npm run cy:debug -- --parallel --group "1x-electron on Travis CI"
+    - kill $(jobs -p) || true
+
+jobs:
+  include:
+    - stage: test
+      env:
+        - STAGE_NAME="1x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="4x-electron on Travis CI"
+      <<: *defaults
