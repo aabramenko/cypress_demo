@@ -16,5 +16,5 @@ cache:
     - npm ci
 
 script:
-  - npm run cy:run:docker
+  - npm run cy:debug
   - kill $(jobs -p) || true
