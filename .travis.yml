@@ -51,3 +51,7 @@ jobs:
       env:
         - STAGE_NAME="2x-electron"
       <<: *defaults
+    - stage: test
+      env:
+        - STAGE_NAME="1x-electron"
+      <<: *defaults
