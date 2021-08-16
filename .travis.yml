@@ -45,9 +45,9 @@ jobs:
   include:
     - stage: test
       env:
-        - STAGE_NAME="1st thread"
+        - STAGE_NAME="1st-thread"
       <<: *defaults
     - stage: test
       env:
-        - STAGE_NAME="2nd thread"
+        - STAGE_NAME="2nd-thread"
       <<: *defaults
