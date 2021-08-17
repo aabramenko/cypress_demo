@@ -16,7 +16,8 @@ cache:
     - npm ci
 
 env:
-  - RECORD_KEY=b98cff40-8555-40e4-982b-5af09efaabd4
+  global:
+    - RECORD_KEY=b98cff40-8555-40e4-982b-5af09efaabd4
 
 defaults: &defaults
   script:
