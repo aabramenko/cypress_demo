@@ -1,24 +1,3 @@
-# language: node_js
-
-# node_js:
-#   - 12
-
-# addons:
-#   apt:
-#     packages:
-#     - libgconf-2-4
-
-# cache:
-#   directories:
-#     - ~/.npm
-#     - ~/.cache
-#   override:
-#     - npm ci
-
-# script:
-#   - npm run cy:debug
-#   - kill $(jobs -p) || true
-
 language: node_js
 
 node_js:
@@ -36,9 +15,12 @@ cache:
   override:
     - npm ci
 
+env:
+  - RECORD_KEY=b98cff40-8555-40e4-982b-5af09efaabd4
+
 defaults: &defaults
   script:
-    - npm run cy:travis -- --record --key b98cff40-8555-40e4-982b-5af09efaabd4 --parallel --group 2x-chrome --ci-build-id $STAGE_NAME-$TRAVIS_BUILD_ID --browser $BROWSER
+    - npm run cy:travis -- --record --key $RECORD_KEY --parallel --group $STAGE_NAME --ci-build-id $STAGE_NAME-$TRAVIS_BUILD_ID --browser $BROWSER
     - kill $(jobs -p) || true
 
 jobs:
