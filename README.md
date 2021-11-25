@@ -3,7 +3,7 @@
 ## Before test run
 
 ```
-git@github.com:aabramenko/cypress_demo.git
+git clone git@github.com:aabramenko/cypress_demo.git
 cd cypress_demo
 npm install
 ```
